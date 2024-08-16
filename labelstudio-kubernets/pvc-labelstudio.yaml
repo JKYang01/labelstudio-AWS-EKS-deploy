@@ -1,0 +1,13 @@
+## set up the pvc (Persistent Volume Claims) for label studio node labelstudio-ls-pvc
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: labelstudio-ls-pvc
+  namespace: default
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+  storageClassName: gp2  # Add the storage class name here
