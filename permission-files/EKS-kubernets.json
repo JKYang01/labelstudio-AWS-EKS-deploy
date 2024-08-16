@@ -1,0 +1,34 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "eks:ListFargateProfiles",
+                "eks:DescribeNodegroup",
+                "eks:ListNodegroups",
+                "eks:ListUpdates",
+                "eks:AccessKubernetesApi",
+                "eks:ListAddons",
+                "eks:DescribeCluster",
+                "eks:DescribeAddonVersions",
+                "eks:ListClusters",
+                "eks:ListIdentityProviderConfigs",
+                "eks:CreateCluster",
+                "eks:TagResource",
+                "ec2:CreateVpc",
+                "ec2:CreateInternetGateway",
+                "ec2:AllocateAddress",
+                "ec2:*",
+                "iam:TagRole",
+                "iam:ListRoles"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": "ssm:GetParameter",
+            "Resource": "arn:aws:ssm:*:100328509916:parameter/*"
+        }
+    ]
+}
