@@ -1,0 +1,27 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "Statement1",
+            "Effect": "Allow",
+            "Action": [
+                "cloudformation:CreateStack",
+                "cloudformation:DescribeStackEvents",
+                "cloudformation:DescribeStacks",
+                "cloudformation:ListChangeSets",
+                "cloudformation:ListTypeRegistrations",
+                "cloudformation:ListStackSets",
+                "cloudformation:ListStacks",
+                "cloudformation:ListStackInstances",
+                "cloudformation:ListExports",
+                "cloudformation:ListImports",
+                "cloudformation:DescribeStackSet",
+                "cloudformation:DeleteStack",
+                "cloudformation:ExecuteChangeSet"
+            ],
+            "Resource": [
+                "arn:aws:cloudformation:us-east-1:100328509916:stack/*"
+            ]
+        }
+    ]
+}
