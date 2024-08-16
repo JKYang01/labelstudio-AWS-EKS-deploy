@@ -1,0 +1,4 @@
+##values for set up labelstudio security and something else
+global:
+  extraEnvironmentVars:
+    SSRF_PROTECTION_ENABLED: "true"
