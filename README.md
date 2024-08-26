@@ -118,7 +118,7 @@ spec:
 
 #### Verify the PVC and PV Status
 `$ kubectl get pvc -n default`
-`$ kubectl get pv`
+`$ kubectl get pvc`
 
 #### Delete pod if they are still not bound (Just in case)
 With the PVCs bound, Label Studio pods should be able to start correctly. 
