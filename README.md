@@ -114,18 +114,24 @@ spec:
 ```
 
 `$ kubectl apply -f pvc-labelstudio.yaml`
+
 `$ kubectl apply -f pvc-postgresql.yaml`
 
 #### Verify the PVC and PV Status
+
 `$ kubectl get pvc -n default`
+
 `$ kubectl get pv`
 
 #### Delete pod if they are still not bound (Just in case)
 With the PVCs bound, Label Studio pods should be able to start correctly. 
 If they are still in a Pending state, redeploy the application:
 example code: 
-`$ kubectl delete pod labelstudio-ls-app-7d4657df77-xbp2w -n default `
+
+`$ kubectl delete pod labelstudio-ls-app-xxdfgeewrr -n default `
+
 `$ kubectl delete pod labelstudio-postgresql-0 -n default `
+
 This will allow Kubernetes to reschedule the pods, 
 which should now work because the storage is properly set up.
 
@@ -133,13 +139,23 @@ which should now work because the storage is properly set up.
 `$ kubectl get pods -n default `
 
 check pod events sample command:
-<pod-name> are the pod names get from command ` kubectl get pods -n default`
+
+<pod-name> are the pod names get from command
+
+`$ kubectl get pods -n default`
+
 `$ kubectl describe pod <pod-name> -n default`
-`$ kubectl describe pod <pod-name> -n default`
+
+for realtime activity run following:
+
+`$ kubectl logs -f labelstudio-ls-app-b447fc8ff-4595v -n default`
+
 
 #### check pod log if need 
 If the pods still face issues, check the pod descriptions and logs for more information:
+
 `$ kubectl describe pod <pod-name> -n default`  
+
 `$ kubectl logs <pod-name> -n default `
 
 ## Set up access link use AWS load balancer controller
@@ -151,7 +167,8 @@ but we want other user can access the labelstudio
 --set global.extraEnvironmentVars.SSRF_PROTECTION_ENABLED="true" \
 --namespace default ```
 
-#### get the app's name that deploy on kubernet 
+#### get the app's name that deploy on kubernet
+
 `$ kubectl get deployments -n default`
 
 output sample: 
@@ -165,6 +182,7 @@ deployment.apps/labelstudio-ls-app restarted
 ```
 
 #### confirm by running the flowing command 
+
 `$ kubectl describe pod -n default | grep SSRF_PROTECTION_ENABLED `
 
 
@@ -242,9 +260,11 @@ spec:
 ```
 
 #### apply ingress resource 
+
 `$ kubectl apply -f labelstudio-ingress.yaml `
 
 #### Check the Ingress Status
+
 the external address (DNS name) is assigned by the AWS Load Balancer: 
 
 `$ kubectl get ingress labelstudio-ingress -n default `
