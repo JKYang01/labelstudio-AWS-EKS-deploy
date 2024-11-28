@@ -270,4 +270,14 @@ the external address (DNS name) is assigned by the AWS Load Balancer:
 `$ kubectl get ingress labelstudio-ingress -n default `
 
 
+#### Terminate TLS on the Load Balancer (using load balancer needs to update labelstudio env ) 
+If SSL termination is happening on a Load Balancer before traffic is forwarded to the Ingress, you’ll need to set the LABEL_STUDIO_HOST environment variable.
+Update your ls-values.yaml file with the LABEL_STUDIO_HOST environment variable like the following example. Replace "your_domain_name" with your hostname.
+
+yaml
+global:
+  extraEnvironmentVars:
+    LABEL_STUDIO_HOST: https://your_domain_name
+
+
 
